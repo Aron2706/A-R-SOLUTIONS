@@ -32,12 +32,20 @@ function addRow() {
 
   const nameCell = newRow.insertCell(0);
   const emailCell = newRow.insertCell(1);
+  const deleteCell = newRow.insertCell(2);
 
   nameCell.innerHTML =
-    '<input autofocus type="text" placeholder="Referencia" class="name-input input-test">';
+    '<input autofocus type="text" placeholder="Referencia" class="name-input input-test required">';
   emailCell.innerHTML =
-    '<input type="number" min="0" placeholder="Cantidad" class="email-input input-test">';
+    '<input type="number" min="0" placeholder="Cantidad" class="email-input input-test required">';
+    deleteCell.innerHTML =
+        '<button class="delete-button">Eliminar</button>';
+
   nameCell.querySelector(".name-input").focus();
+
+  deleteCell.querySelector(".delete-button").onclick = function() {
+     this.parentElement.parentElement.remove();
+ };
 
   rowData.push({ Descripcion: "", Cantidad: "" });
   const buttons = document.querySelectorAll(".button");
