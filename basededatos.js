@@ -1,74 +1,67 @@
-function LOGI()
-{
+function LOGI() {
+  let usermin = document.getElementById("user").value;
+  let user = usermin.toUpperCase();
+  let pass = document.getElementById("pass").value;
 
-let usermin=document.getElementById("user").value;
-let user=usermin.toUpperCase();
-let pass=document.getElementById("pass").value;
-
-if (user=="GRD1" && pass=="1234")
-{
-     window.location= "file:///C:/Users/a.rangel/OneDrive%20-%20Motta%20Internacional,%20S.A/Desktop/BASICO%20HTML/LOGON1.HTML";
-}
-else if(user=="SAT2" && pass=="1234")
-{
-     window.location= "file:///C:/Users/a.rangel/OneDrive%20-%20Motta%20Internacional,%20S.A/Desktop/BASICO%20HTML/LOGON1.HTML";
-}
-else if (user=="SAT3" && pass=="1234")
-{
-     window.location= "file:///C:/Users/a.rangel/OneDrive%20-%20Motta%20Internacional,%20S.A/Desktop/BASICO%20HTML/LOGON1.HTML";
-}
-else if (user=="SAT4" && pass=="1234")
-{
-     window.location= "file:///C:/Users/a.rangel/OneDrive%20-%20Motta%20Internacional,%20S.A/Desktop/BASICO%20HTML/LOGON1.HTML";
-}
-else if (user=="GRT2" && pass=="1234")
-{
-     window.location= "file:///C:/Users/a.rangel/OneDrive%20-%20Motta%20Internacional,%20S.A/Desktop/BASICO%20HTML/LOGON1.HTML";
-}
-else if (user=="PLT2" && pass=="1234")
-{
-     window.location= "file:///C:/Users/a.rangel/OneDrive%20-%20Motta%20Internacional,%20S.A/Desktop/BASICO%20HTML/LOGON1.HTML";
-}
-else
-{
+  if (user == "GRD1" && pass == "1234") {
+    window.location = "LOGON1.HTML?user=" + user;
+  } else if (user == "SAT2" && pass == "1234") {
+    window.location = "LOGON1.HTML?user=" + user;
+  } else if (user == "SAT3" && pass == "1234") {
+    window.location = "LOGON1.HTML?user=" + user;
+  } else if (user == "SAT4" && pass == "1234") {
+    window.location = "LOGON1.HTML?user=" + user;
+  } else if (user == "GRT2" && pass == "1234") {
+    window.location = "LOGON1.HTML?user=" + user;
+  } else if (user == "PLT2" && pass == "1234") {
+    window.location = "LOGON1.HTML?user=" + user;
+  } else {
     alert("Usuario o contraseña son incorrectos");
-}
-
+  }
 }
 
 let rowData = [];
 
-function addRow() {
-    const tableBody = document.querySelector('#dynamicTable tbody');
-    const newRow = tableBody.insertRow();
-  
-    const nameCell = newRow.insertCell(0);
-    const emailCell = newRow.insertCell(1);
-  
-    nameCell.innerHTML = '<input autofocus type="text" placeholder="Referencia" class="name-input">';
-    emailCell.innerHTML = '<input type="number" min="0" placeholder="Cantidad" class="email-input">';
-  
-    rowData.push({ name: '', email: '' });
-  }
+window.onload = function() {
+     addRow();
+ };
 
-  function generateExcel() {
-     const tableRows = document.querySelectorAll('#dynamicTable tbody tr');
-   
-     tableRows.forEach((row, index) => {
-       const nameInput = row.querySelector('.name-input');
-       const emailInput = row.querySelector('.email-input');
-   
-       rowData[index].name = nameInput.value;
-       rowData[index].email = emailInput.value;
-     });
-   
-     // Crear una hoja de cálculo
-     const ws = XLSX.utils.json_to_sheet(rowData);
-   
-     // Crear un libro de Excel
-     const wb = XLSX.utils.book_new();
-     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-   
-     // Guardar el archivo Excel y crear un enlace para la descarga
-     XLSX.writeFile(wb, 'tabla_dinamica.xlsx');
-   }
+function addRow() {
+  const tableBody = document.querySelector("#dynamicTable tbody");
+  const newRow = tableBody.insertRow();
+
+  const nameCell = newRow.insertCell(0);
+  const emailCell = newRow.insertCell(1);
+
+  nameCell.innerHTML =
+    '<input autofocus type="text" placeholder="Referencia" class="name-input input-test">';
+  emailCell.innerHTML =
+    '<input type="number" min="0" placeholder="Cantidad" class="email-input input-test">';
+  nameCell.querySelector(".name-input").focus();
+
+  rowData.push({ Descripcion: "", Cantidad: "" });
+}
+
+function generateExcel() {
+  let params = new URLSearchParams(window.location.search);
+  let user = params.get("user");
+  const tableRows = document.querySelectorAll("#dynamicTable tbody tr");
+
+  tableRows.forEach((row, index) => {
+    const nameInput = row.querySelector(".name-input");
+    const emailInput = row.querySelector(".email-input");
+
+    rowData[index].Descripcion = nameInput.value;
+    rowData[index].Cantidad = emailInput.value;
+  });
+
+  // Crear una hoja de cálculo
+  const ws = XLSX.utils.json_to_sheet(rowData);
+
+  // Crear un libro de Excel
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+
+  // Guardar el archivo Excel y crear un enlace para la descarga
+  XLSX.writeFile(wb, user + ".xlsx");
+}

@@ -10,7 +10,7 @@
 
     <div class="Loginbox">
      
-      <form>
+      <form onsubmit="LOGI(); return false;">
         <h2 class="input">LOGIN ATTENZA</h2>
         <br>
         <input class="input" id="user" type="text" placeholder="Usuario" required autofocus/>
@@ -19,7 +19,7 @@
         <input class="input" id="pass" type="password" placeholder="Contraseña" required />
         <br />
         <br />
-       <input class="button" type="button" value="Entrar" onclick="LOGI()">
+       <input class="button" type="submit" value="Entrar" onclick="LOGI()">
       </form>
    
     </div>
