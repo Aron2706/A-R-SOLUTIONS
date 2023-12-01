@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="ESTLOGON.CSS">
+<script src="basededatos.js"></script>
+<title>TESTER ATTENZA</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="ALL">
+<DIV>
+    <table id="dynamicTable">
+    <thead>
+      <tr class="">
+        <th>DESCRIPCION</th>
+        <th>CANTIDAD</th>
+      </tr>
+    </thead>
+    <tbody class="FORM">
+        <!-- Filas dinámicas se agregarán aquí -->
+      </tbody>
+  </table>
+  <button class="button" onclick="addRow()">Añadir Tester</button>
+  <button class="button"  onclick="generateExcel()">Cargar Pedido</button>
+</DIV>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+</body>
+</html>
