@@ -22,9 +22,9 @@ function LOGI() {
 
 let rowData = [];
 
-window.onload = function() {
-     addRow();
- };
+window.onload = function () {
+  addRow();
+};
 
 function addRow() {
   const tableBody = document.querySelector("#dynamicTable tbody");
@@ -40,6 +40,9 @@ function addRow() {
   nameCell.querySelector(".name-input").focus();
 
   rowData.push({ Descripcion: "", Cantidad: "" });
+  const buttons = document.querySelectorAll(".button");
+  const addButton = buttons[0]; // Índice 0 para el primer botón
+  addButton.scrollIntoView({ behavior: "smooth", block: "end" });
 }
 
 function generateExcel() {
