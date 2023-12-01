@@ -1,3 +1,11 @@
+/* Estilo para centrar el encabezado de la tabla antes de que se agregue una fila
+#dynamicTable thead th {
+  text-align: center;
+  vertical-align: middle;
+  width: 100px;
+} */ 
+
+
 /* Estilo general para el contenedor */
 .ALL {
     display: flex;
@@ -29,6 +37,7 @@
     color: white;
     border-radius: 5px;
     padding: 10px;
+    font-size: 22px;
   }
   
   /* Estilo para los botones */
@@ -36,7 +45,7 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: black;
     color: pink;
-    width: 180px;
+    width: 235px;
     height: 40px;
     font-size: 18px;
     border: none;
@@ -49,11 +58,11 @@
   }
   
   /* Estilo para los campos de entrada */
-  .input {
+  .input-test {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color:whitesmoke;
+    color:black;
     width: 200px;
-    height: 30px;
+    height: 15px;
     font-size: 16px;
     border: 1px solid black;
     border-radius: 8px;
