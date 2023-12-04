@@ -74,6 +74,11 @@ function generateExcel() {
 
   // Guardar el archivo Excel el el servidor
   axios.post('/save-excel', { data: rowData, user: user })
-  .then(() => console.log('Excel file has been saved!'))
-  .catch(err => console.error(err));
+  .then(() => 
+  alert('Se ha cargado el pedido exitosamente!'),
+  console.log('Se ha cargado el pedido exitosamente!')
+  )
+  .catch(err => 
+    alert('Hubo un error al cargar el pedido'),
+    console.error(err));
 }
