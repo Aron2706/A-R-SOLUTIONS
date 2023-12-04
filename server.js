@@ -30,7 +30,7 @@ app.post("/save-excel", (req, res) => {
 
   XLSX.writeFile(workbook, path.join(outputDirectory, `${formattedDate}-${user}-${marca}-${por}.xlsx`));
   res.send("Excel guardado en el servidor!");
-  console.log(formattedDate + " - Pedido " + user + " guardado en el servidor");
+  console.log(formattedDate + " - Pedido " + marca + " de " + user + " solicitado por " + por + " guardado en el servidor");
 });
 
 app.get("/LOGON1.HTML", (req, res) => {
