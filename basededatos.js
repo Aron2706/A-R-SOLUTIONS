@@ -38,14 +38,13 @@ function addRow() {
     '<input autofocus type="text" placeholder="Referencia" class="name-input input-test required">';
   emailCell.innerHTML =
     '<input type="number" min="0" placeholder="Cantidad" class="email-input input-test required">';
-    deleteCell.innerHTML =
-        '<button class="delete-button">Eliminar</button>';
+  deleteCell.innerHTML = '<button class="delete-button">X</button>';
 
   nameCell.querySelector(".name-input").focus();
 
-  deleteCell.querySelector(".delete-button").onclick = function() {
-     this.parentElement.parentElement.remove();
- };
+  deleteCell.querySelector(".delete-button").onclick = function () {
+    this.parentElement.parentElement.remove();
+  };
 
   rowData.push({ Descripcion: "", Cantidad: "" });
   const buttons = document.querySelectorAll(".button");
