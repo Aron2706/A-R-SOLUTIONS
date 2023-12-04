@@ -54,6 +54,20 @@
     margin-top: 5px;
   }
 
+  .button:disabled,
+  .button:disabled:hover {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: grey;
+    color: white;
+    cursor: not-allowed;
+    width: auto;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 0px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+
   .delete-button {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: black;
