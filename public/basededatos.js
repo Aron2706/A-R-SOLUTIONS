@@ -24,6 +24,37 @@ let rowData = [];
 
 window.onload = function () {
   addRow();
+  let params = new URLSearchParams(window.location.search);
+  let user = params.get("user");
+
+  let selectElement = document.getElementById("tienda");
+  selectElement.value = user;
+  if (user) {
+    selectElement.disabled = true;
+  }
+
+  let cargarPedidoButton = document.querySelector(
+    '.button[onclick="generateExcel()"]'
+  );
+  if (!user) {
+    cargarPedidoButton.disabled = true;
+  }
+
+  // Obtener todos los campos de entrada
+  const inputs = document.querySelectorAll('input');
+  
+  inputs.forEach((input) => {
+    input.addEventListener("input", () => {
+      // Comprobar si alguno de los campos de entrada está vacío
+      const anyInputEmpty = [...inputs].some((input) => input.value === "");
+
+      // Deshabilitar o habilitar el botón según si alguno de los campos de entrada está vacío o no
+      cargarPedidoButton.disabled = anyInputEmpty;
+    });
+  });
+
+  // Deshabilitar el botón inicialmente
+  cargarPedidoButton.disabled = true;
 };
 
 function addRow() {
@@ -82,7 +113,12 @@ function generateExcel() {
 
   // Guardar el archivo Excel el el servidor
   axios
-    .post("/save-excel", { data: rowData, user: user, marca: marcaValue, por: porValue })
+    .post("/save-excel", {
+      data: rowData,
+      user: user,
+      marca: marcaValue,
+      por: porValue,
+    })
     .then(() => {
       alert("Se ha cargado el pedido exitosamente!");
       console.log("Se ha cargado el pedido exitosamente!");
