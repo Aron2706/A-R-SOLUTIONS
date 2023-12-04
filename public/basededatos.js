@@ -72,6 +72,8 @@ function generateExcel() {
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
 
-  // Guardar el archivo Excel y crear un enlace para la descarga
-  XLSX.writeFile(wb, user + ".xlsx");
+  // Guardar el archivo Excel el el servidor
+  axios.post('/save-excel', { data: rowData, user: user })
+  .then(() => console.log('Excel file has been saved!'))
+  .catch(err => console.error(err));
 }
