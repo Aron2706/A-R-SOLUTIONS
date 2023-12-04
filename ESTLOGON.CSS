@@ -34,7 +34,7 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: black;
     color: pink;
-    width: 235px;
+    width: auto;
     height: 40px;
     font-size: 18px;
     border: none;
@@ -46,24 +46,22 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: black;
     color: pink;
-    width: 235px;
+    width: auto;
     height: 40px;
     font-size: 18px;
-    border: none;
     border-radius: 0px;
-   
+    margin-bottom: 10px;
   }
 
   .delete-button {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: black;
     color: pink;
-    width: auto;
+    width: 100%;
     height: auto;
     font-size: 16px;
     border: 1px solid black;
     border-radius: 8px;
-    margin-bottom: 10px;
     padding: 15px;
   }
   
@@ -75,13 +73,13 @@
   .input-test {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color:black;
-    width: 200px;
-    height: 15px;
+    width: 100%;
+    height: auto;
     font-size: 16px;
     border: 1px solid black;
     border-radius: 8px;
-    margin-bottom: 10px;
     padding: 15px;
+    box-sizing: border-box;
   }
   
   /* Estilo para mejorar la apariencia del enlace de descarga Excel */
@@ -97,3 +95,16 @@
     background-color: #45a049;
   }
   
+  div {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    padding: 0;
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  div {
+      width: 100%;
+  }
+}
