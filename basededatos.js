@@ -35,9 +35,9 @@ function addRow() {
   const deleteCell = newRow.insertCell(2);
 
   nameCell.innerHTML =
-    '<input autofocus type="text" placeholder="Referencia" class="name-input input-test required">';
+    '<input autofocus type="text" placeholder="Referencia" class="name-input input-test" oninput="this.value = this.value.toUpperCase()" required">';
   emailCell.innerHTML =
-    '<input type="number" min="0" placeholder="Cantidad" class="email-input input-test required">';
+    '<input type="number" min="0" placeholder="Cantidad" class="email-input input-test"  required">';
   deleteCell.innerHTML = '<button class="delete-button">X</button>';
 
   nameCell.querySelector(".name-input").focus();
