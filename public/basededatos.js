@@ -46,7 +46,7 @@ function addRow() {
     this.parentElement.parentElement.remove();
   };
 
-  rowData.push({ Descripcion: "", Cantidad: "" });
+  rowData.push({ Descripcion: "", Cantidad: "", Generado_Por: "", Marca: "" });
   const buttons = document.querySelectorAll(".button");
   const addButton = buttons[0]; // Índice 0 para el primer botón
   addButton.scrollIntoView({ behavior: "smooth", block: "end" });
@@ -57,12 +57,20 @@ function generateExcel() {
   let user = params.get("user");
   const tableRows = document.querySelectorAll("#dynamicTable tbody tr");
 
+  // Obtener los valores de los campos de entrada "por" y "marca"
+  const porValue = document.getElementById("por").value;
+  const marcaValue = document.getElementById("marca").value;
+
   tableRows.forEach((row, index) => {
     const nameInput = row.querySelector(".name-input");
     const emailInput = row.querySelector(".email-input");
 
     rowData[index].Descripcion = nameInput.value;
     rowData[index].Cantidad = emailInput.value;
+
+    // Agregar los valores de "por" y "marca" a rowData
+    rowData[index].Generado_Por = porValue;
+    rowData[index].Marca = marcaValue;
   });
 
   // Crear una hoja de cálculo
@@ -73,12 +81,17 @@ function generateExcel() {
   XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
 
   // Guardar el archivo Excel el el servidor
-  axios.post('/save-excel', { data: rowData, user: user })
-  .then(() => 
-  alert('Se ha cargado el pedido exitosamente!'),
-  console.log('Se ha cargado el pedido exitosamente!')
-  )
-  .catch(err => 
-    alert('Hubo un error al cargar el pedido'),
-    console.error(err));
+  axios
+    .post("/save-excel", { data: rowData, user: user, marca: marcaValue, por: porValue })
+    .then(() => {
+      alert("Se ha cargado el pedido exitosamente!");
+      console.log("Se ha cargado el pedido exitosamente!");
+      // Borrar todos los valores de los campos de entrada
+      const inputs = document.querySelectorAll("input");
+      inputs.forEach((input) => (input.value = ""));
+    })
+    .catch((err) => {
+      alert("Hubo un error al cargar el pedido");
+      console.error(err);
+    });
 }
