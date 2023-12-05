@@ -14,6 +14,7 @@
 </input>
     <input type="text" placeholder="Realizado por" class="input-test" id="por" required>
     <input type="text" placeholder="Marca" class="input-test" id="marca" required>
+    <input type="text" placeholder="Código de barra" class="input-test" id="codebar">
     <table id="dynamicTable">
     <thead>
       <tr class="HD">
@@ -25,7 +26,6 @@
         <!-- Filas dinámicas se agregarán aquí -->
       </tbody>
   </table>
-  <button class="button" onclick="addRow()">Añadir Tester</button>
   <button class="button"  onclick="generateExcel()">Cargar Pedido</button>
 </div>
 <script lang="javascript" src="https://cdn.sheetjs.com/xlsx-0.20.0/package/dist/xlsx.full.min.js"></script>
