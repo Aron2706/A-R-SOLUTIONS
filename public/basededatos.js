@@ -167,6 +167,9 @@ function generateExcel() {
 
       // Vaciar rowData
       rowData = [];
+      let cargarPedidoButton = document.querySelector(
+        '.button[onclick="generateExcel()"]'
+      );
       cargarPedidoButton.disabled = true;
     })
     .catch((err) => {
