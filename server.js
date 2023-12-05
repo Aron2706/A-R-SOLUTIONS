@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const XLSX = require("xlsx");
 const fs = require("fs");
 const path = require("path");
+const https = require("https");
 
 const app = express();
 
@@ -12,6 +13,10 @@ const outputDirectory = "//veeam-proxy-tocumen/AttenzaGeneral/Pedido Tester";
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public"))); // Asume que tus archivos estáticos (html, css, js) están en una carpeta llamada 'public'
+
+// Leer la clave y el certificado
+const key = fs.readFileSync(path.resolve(__dirname, "key.pem"));
+const cert = fs.readFileSync(path.resolve(__dirname, "cert.pem"));
 
 app.post("/save-excel", (req, res) => {
   const data = req.body.data;
@@ -38,3 +43,9 @@ app.get("/LOGON1.HTML", (req, res) => {
 });
 
 app.listen(3000, () => console.log("Server is running on port 3000"));
+
+// Crear el servidor HTTPS
+const server = https.createServer({ key, cert }, app);
+
+// Escuchar en el puerto 8443
+server.listen(3001, () => console.log("Servidor HTTPS escuchando en el puerto 3001"));
