@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><config>
+  <kiosk>
+    <application label="BAMS Mobile" package="b4a.BAMSMobile" activity="b4a.BAMSMobile.main"/>
+  </kiosk>
+  <applications>
+    <application label="Calculator" package="com.google.android.calculator" activity="com.android.calculator2.Calculator"/>
+    <application label="AnyDesk" package="com.anydesk.anydeskandroid" activity="com.anydesk.anydeskandroid.gui.activity.MainActivity"/>
+    <application label="BAMS Mobile" package="b4a.BAMSMobile" activity="b4a.BAMSMobile.main"/>
+  <link label="LOGIN ATTENZA" pinned_activity="com.android.chrome"/>
+  <application label="Pedidos Attenza" package="io.ars.pedidosatt" activity="io.ars.pedidosatt.MainActivity"/>
+  </applications>
+  <tools>
+    <application label="DataWedge" package="com.symbol.datawedge" activity="com.symbol.datawedge.dwProfiles"/>
+  </tools>
+  <passwords>
+    <admin attempts="1">t8H8DHUmz6ZRFlQcIpwO8i18Jx1l+82M51cx3C2NCgU=vJGT11e5P+KufEOACwFxAOcUXovAWrehrgI2odv4ttA=</admin>
+  </passwords>
+  <user_options/>
+  <preferences>
+    <orientation/>
+    <wallpaper/>
+    <usb_debugging_disabled>1</usb_debugging_disabled>
+    <icon_label_text_color>#FFFFFFFF</icon_label_text_color>
+    <recent_apps_button_disabled>0</recent_apps_button_disabled>
+    <auto_launch_enable>0</auto_launch_enable>
+    <service_auto_launch_enable>0</service_auto_launch_enable>
+    <keyguard_search_disabled>1</keyguard_search_disabled>
+    <system_settings_restricted>0</system_settings_restricted>
+    <recent_apps_access_disabled>0</recent_apps_access_disabled>
+    <icon_label_background_color>#00FFFFFF</icon_label_background_color>
+    <keyguard_camera_disabled>1</keyguard_camera_disabled>
+    <kiosk_mode_enabled>0</kiosk_mode_enabled>
+    <title>Attenza;#32;Duty;#32;Free</title>
+    <admin_lock_out>
+      <recovery_enabled>1</recovery_enabled>
+      <recovery_timeout>30</recovery_timeout>
+    </admin_lock_out>
+    <pin_shortcuts>
+      <pin_shortcuts_enabled>1</pin_shortcuts_enabled>
+    </pin_shortcuts>
+    <screen_blanking>
+      <blanking_enabled>0</blanking_enabled>
+      <speed_threshold>10</speed_threshold>
+      <blanking_mode>1</blanking_mode>
+    </screen_blanking>
+  </preferences>
+</config>
