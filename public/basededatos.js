@@ -23,7 +23,6 @@ function LOGI() {
 let rowData = [];
 
 window.onload = function () {
-  addRow();
   let params = new URLSearchParams(window.location.search);
   let user = params.get("user");
 
@@ -33,6 +32,17 @@ window.onload = function () {
     selectElement.disabled = true;
   }
 
+  const codebarInput = document.getElementById("codebar");
+
+  codebarInput.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const barcode = this.value;
+      addRow(barcode);
+      this.value = "";
+    }
+  });
+
   let cargarPedidoButton = document.querySelector(
     '.button[onclick="generateExcel()"]'
   );
@@ -41,12 +51,14 @@ window.onload = function () {
   }
 
   // Obtener todos los campos de entrada
-  const inputs = document.querySelectorAll('input');
-  
+  const inputs = document.querySelectorAll("input");
+
   inputs.forEach((input) => {
     input.addEventListener("input", () => {
       // Comprobar si alguno de los campos de entrada está vacío
-      const anyInputEmpty = [...inputs].some((input) => input.value === "");
+      const anyInputEmpty = [...inputs].some(
+        (input) => input.value === "" && input.id !== "barcode"
+      );
 
       // Deshabilitar o habilitar el botón según si alguno de los campos de entrada está vacío o no
       cargarPedidoButton.disabled = anyInputEmpty;
@@ -57,27 +69,40 @@ window.onload = function () {
   cargarPedidoButton.disabled = true;
 };
 
-function addRow() {
+function addRow(barcode) {
   const tableBody = document.querySelector("#dynamicTable tbody");
-  const newRow = tableBody.insertRow();
+  const existingRow = Array.from(tableBody.querySelectorAll("tr")).find(
+    (row) => row.dataset.barcode === barcode
+  );
 
-  const nameCell = newRow.insertCell(0);
-  const emailCell = newRow.insertCell(1);
-  const deleteCell = newRow.insertCell(2);
+  if (existingRow) {
+    const quantityCell = existingRow.querySelector(".quantity-cell");
+    quantityCell.textContent = Number(quantityCell.textContent) + 1;
+  } else {
+    const newRow = tableBody.insertRow();
+    newRow.dataset.barcode = barcode;
 
-  nameCell.innerHTML =
-    '<input autofocus type="text" placeholder="Código de Barra" class="name-input input-test" oninput="this.value = this.value.toUpperCase()" required">';
-  emailCell.innerHTML =
-    '<input type="number" min="0" placeholder="Cantidad" class="email-input input-test"  required">';
-  deleteCell.innerHTML = '<button class="delete-button">X</button>';
+    const nameCell = newRow.insertCell(0);
+    const quantityCell = newRow.insertCell(1);
+    const deleteCell = newRow.insertCell(2);
 
-  nameCell.querySelector(".name-input").focus();
+    nameCell.textContent = barcode;
+    nameCell.className = "barcode-cell";
+    quantityCell.textContent = "1";
+    quantityCell.className = "quantity-cell";
+    deleteCell.innerHTML = '<button class="delete-button">X</button>';
 
-  deleteCell.querySelector(".delete-button").onclick = function () {
-    this.parentElement.parentElement.remove();
-  };
+    deleteCell.querySelector(".delete-button").onclick = function () {
+      this.parentElement.parentElement.remove();
+    };
 
-  rowData.push({ Descripcion: "", Cantidad: "", Generado_Por: "", Marca: "" });
+    rowData.push({
+      Código: barcode,
+      Cantidad: "1",
+      Por: "",
+      Marca: "",
+    });
+  }
   const buttons = document.querySelectorAll(".button");
   const addButton = buttons[0]; // Índice 0 para el primer botón
   addButton.scrollIntoView({ behavior: "smooth", block: "end" });
@@ -93,15 +118,20 @@ function generateExcel() {
   const marcaValue = document.getElementById("marca").value;
 
   tableRows.forEach((row, index) => {
-    const nameInput = row.querySelector(".name-input");
-    const emailInput = row.querySelector(".email-input");
+    const barcodeCell = row.querySelector(".barcode-cell");
+    const quantityCell = row.querySelector(".quantity-cell");
 
-    rowData[index].Descripcion = nameInput.value;
-    rowData[index].Cantidad = emailInput.value;
+    // Utilizar textContent en lugar de value para obtener el texto de las celdas
+    const barcode = barcodeCell.textContent;
+    const quantity = quantityCell.textContent;
 
-    // Agregar los valores de "por" y "marca" a rowData
-    rowData[index].Generado_Por = porValue;
-    rowData[index].Marca = marcaValue;
+    // Actualizar rowData con los valores de las celdas
+    rowData[index] = {
+      Descripcion: barcode,
+      Cantidad: quantity,
+      Generado_Por: porValue,
+      Marca: marcaValue,
+    };
   });
 
   // Crear una hoja de cálculo
@@ -124,7 +154,20 @@ function generateExcel() {
       console.log("Se ha cargado el pedido exitosamente!");
       // Borrar todos los valores de los campos de entrada
       const inputs = document.querySelectorAll("input");
-      inputs.forEach((input) => (input.value = ""));
+      inputs.forEach((input) => {
+        if (input.id !== "tienda") {
+          input.value = "";
+        }
+      });
+      // Vaciar el contenido de la tabla
+      const tableBody = document.querySelector("#dynamicTable tbody");
+      while (tableBody.firstChild) {
+        tableBody.removeChild(tableBody.firstChild);
+      }
+
+      // Vaciar rowData
+      rowData = [];
+      cargarPedidoButton.disabled = true;
     })
     .catch((err) => {
       alert("Hubo un error al cargar el pedido");
