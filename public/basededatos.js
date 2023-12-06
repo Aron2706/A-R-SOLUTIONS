@@ -143,7 +143,7 @@ function generateExcel() {
 
   // Guardar el archivo Excel el el servidor
   axios
-    .post("/save-excel", {
+    .post("https://localhost:3001/save-excel", {
       data: rowData,
       user: user,
       marca: marcaValue,

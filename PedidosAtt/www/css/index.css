@@ -47,6 +47,14 @@ body {
     background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
 
+/* Fondo con gradiente no funciona en APK
+@media screen and (prefers-color-scheme: dark) {
+    body {
+        background-image:linear-gradient(to bottom, #585858 0%, #1B1B1B 51%);
+    }
+}
+*/
+
 .Loginbox {
     background-color: rgba(245, 245, 245, 0.767);
     padding: 20px;
@@ -130,11 +138,4 @@ h1 {
 .blink {
     -webkit-animation:fade 3000ms infinite;
     animation:fade 3000ms infinite;
-}
-
-
-@media screen and (prefers-color-scheme: dark) {
-    body {
-        background-image:linear-gradient(to bottom, #585858 0%, #1B1B1B 51%);
-    }
 }
