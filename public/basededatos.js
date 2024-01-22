@@ -127,9 +127,9 @@ function generateExcel() {
 
     // Actualizar rowData con los valores de las celdas
     rowData[index] = {
-      Descripcion: barcode,
+      Código: barcode,
       Cantidad: quantity,
-      Generado_Por: porValue,
+      Por: porValue,
       Marca: marcaValue,
     };
   });

@@ -105,9 +105,9 @@ function generateExcel() {
 
     // Actualizar rowData con los valores de las celdas
     rowData[index] = {
-      Descripcion: barcode,
+      Código: barcode,
       Cantidad: quantity,
-      Generado_Por: porValue,
+      Por: porValue,
       Marca: marcaValue,
     };
   });
@@ -121,7 +121,7 @@ function generateExcel() {
 
   // Guardar el archivo Excel el el servidor mediante el puerto https
   axios
-    .post("https://mj0kfg2p-atpao:3001/save-excel", {
+    .post("https://172.26.1.40:3001/save-excel", {
       data: rowData,
       user: user,
       marca: marcaValue,
