@@ -16,14 +16,14 @@
     <input type="text" placeholder="Referencia" class="input-test" id="Referencia" required>
     <input type="text" placeholder="Daño" class="input-test" id="Daño" required>
     <input type="text" placeholder="Comentario" class="input-test" id="Comentario" required>
-    <table id="dynamicTable">
+  <input type="file" placeholder="Imagen del producto" class="input-test" id="imagen" required>
+  <button class="button"  onclick="addRow()">Añadir Fila</button>
+  <button class="button"  onclick="generateExcel()">Generar Reporte</button>
+  <table id="dynamicTable">
     <tbody class="FORM">
         <!-- Filas dinámicas se agregarán aquí -->
       </tbody>
   </table>
-  <input type="file" placeholder="Imagen del producto" class="input-test" id="imagen" required>
-  <button class="button"  onclick="addRow()">Añadir Fila</button>
-  <button class="button"  onclick="generateExcel()">Generar Reporte</button>
 </div>
 <script lang="javascript" src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
 </body>

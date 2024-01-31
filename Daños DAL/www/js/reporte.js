@@ -1,31 +1,36 @@
-let rowData = [];
+// Definición de comunicaión con API
+const http = "http://";
+const server = "localhost";
+//const server = "mj0kfg2p-atpao";
+const port = 3000;
+const endpointapi = "/save-excel-danos";
 
+// Se define variable para almacenar los datos de la tabla para el excel
+let Filas = [];
+let Data = new FormData();
+
+
+//Funcion que se ejecuta al cargar la página
 window.onload = function () {
   let params = new URLSearchParams(window.location.search);
-  let user = params.get("user");
+  let TiendaParam = params.get("user");
 
-  let selectElement = document.getElementById("tienda");
-  selectElement.value = user;
-  if (user) {
-    selectElement.disabled = true;
+  let InputTienda = document.getElementById("tienda");
+  InputTienda.value = TiendaParam;
+  if (TiendaParam) {
+    InputTienda.disabled = true;
   }
 
-  const codebarInput = document.getElementById("codebar");
-
-  codebarInput.addEventListener("keypress", function (e) {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      const barcode = this.value;
-      addRow(barcode);
-      this.value = "";
-    }
-  });
-
-  let cargarPedidoButton = document.querySelector(
+  let cargarReporteButton = document.querySelector(
     '.button[onclick="generateExcel()"]'
   );
-  if (!user) {
-    cargarPedidoButton.disabled = true;
+  let añadirFilaButton = document.querySelector(
+    '.button[onclick="addRow()"]'
+  );
+  // Deshabilitar el botón si no hay un usuario
+  if (!TiendaParam) {
+    cargarReporteButton.disabled = true;
+    añadirFilaButton.disabled = true;
   }
 
   // Obtener todos los campos de entrada
@@ -35,101 +40,96 @@ window.onload = function () {
     input.addEventListener("input", () => {
       // Comprobar si alguno de los campos de entrada está vacío
       const anyInputEmpty = [...inputs].some(
-        (input) => input.value === "" && input.id !== "barcode"
+        (input) => input.value === ""
       );
 
       // Deshabilitar o habilitar el botón según si alguno de los campos de entrada está vacío o no
-      cargarPedidoButton.disabled = anyInputEmpty;
+      cargarReporteButton.disabled = anyInputEmpty;
+      añadirFilaButton.disabled = anyInputEmpty;
     });
   });
 
   // Deshabilitar el botón inicialmente
-  cargarPedidoButton.disabled = true;
+  cargarReporteButton.disabled = true;
+  añadirFilaButton.disabled = true;
 };
 
-function addRow(barcode) {
+
+//Función que añade nueva fila a la tabla
+function addRow() {
+  refInput = document.getElementById('Referencia')
   const tableBody = document.querySelector("#dynamicTable tbody");
-  const existingRow = Array.from(tableBody.querySelectorAll("tr")).find(
-    (row) => row.dataset.barcode === barcode
-  );
 
-  if (existingRow) {
-    const quantityCell = existingRow.querySelector(".quantity-cell");
-    quantityCell.textContent = Number(quantityCell.textContent) + 1;
-  } else {
+  const comentarioInput = document.getElementById('Comentario');
+  const dañoInput = document.getElementById('Daño');
+  // Obtén la imagen del input
+  const imageInput = document.getElementById('imagen');
+
+  if (refInput.value != "" || dañoInput.value != "" || imageInput.files.length != 0) {
+    const imageFile = imageInput.files[0];
+    const imageUrl = URL.createObjectURL(imageFile);
+
+    // Crea fila nueva e inserta las columnas
     const newRow = tableBody.insertRow();
-    newRow.dataset.barcode = barcode;
+    const RefCell = newRow.insertCell(0);
+    const DañoCell = newRow.insertCell(1);
+    const imageCell = newRow.insertCell(2);
+    const deleteCell = newRow.insertCell(3);
 
-    const nameCell = newRow.insertCell(0);
-    const quantityCell = newRow.insertCell(1);
-    const deleteCell = newRow.insertCell(2);
+    // Añade la referencia y la razón del daño a la fila
+    RefCell.textContent = refInput.value;
+    RefCell.className = "barcode-cell";
+    DañoCell.textContent = dañoInput.value;
+    DañoCell.className = "quantity-cell";
+    
+    // Crea un nuevo elemento img y establece su atributo src a la URL de la imagen
+    const imageElement = document.createElement('img');
+    imageElement.src = imageUrl;
+    imageElement.style.width = '100px'; // Establece el ancho de la imagen
+    imageElement.style.height = '100px'; // Establece la altura de la imagen
+    imageCell.appendChild(imageElement); // Añade el elemento img a la celda de la imagen
 
-    nameCell.textContent = barcode;
-    nameCell.className = "barcode-cell";
-    quantityCell.textContent = "1";
-    quantityCell.className = "quantity-cell";
     deleteCell.innerHTML = '<button class="delete-button">X</button>';
 
     deleteCell.querySelector(".delete-button").onclick = function () {
       this.parentElement.parentElement.remove();
-    };
-
-    rowData.push({
-      Código: barcode,
-      Cantidad: "1",
-      Por: "",
-      Marca: "",
-    });
   }
   const buttons = document.querySelectorAll(".button");
   const addButton = buttons[0]; // Índice 0 para el primer botón
   addButton.scrollIntoView({ behavior: "smooth", block: "end" });
+
+  Filas.push({
+    Referencia: refInput.value,
+    Daño: dañoInput.value,
+    Comentario: comentarioInput.value,
+    Imagen: imageFile,
+  })
+
+  // Vacía los inputs después de añadir la fila
+  imageInput.value = '';
+  refInput.value = '';
+  dañoInput.value = '';
+  comentarioInput.value = '';
+  }
 }
 
+//Función que genera el archivo excel
 function generateExcel() {
+  addRow();
   let params = new URLSearchParams(window.location.search);
-  let user = params.get("user");
-  const tableRows = document.querySelectorAll("#dynamicTable tbody tr");
+  let TiendaParam = params.get("user");
 
-  // Obtener los valores de los campos de entrada "por" y "marca"
-  const porValue = document.getElementById("por").value;
-  const marcaValue = document.getElementById("marca").value;
-
-  tableRows.forEach((row, index) => {
-    const barcodeCell = row.querySelector(".barcode-cell");
-    const quantityCell = row.querySelector(".quantity-cell");
-
-    // Utilizar textContent en lugar de value para obtener el texto de las celdas
-    const barcode = barcodeCell.textContent;
-    const quantity = quantityCell.textContent;
-
-    // Actualizar rowData con los valores de las celdas
-    rowData[index] = {
-      Descripcion: barcode,
-      Cantidad: quantity,
-      Generado_Por: porValue,
-      Marca: marcaValue,
-    };
-  });
-
-  // Crear una hoja de cálculo
-  const ws = XLSX.utils.json_to_sheet(rowData);
-
-  // Crear un libro de Excel
-  const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
-
+  console.log(Filas, TiendaParam)
   // Guardar el archivo Excel el el servidor mediante el puerto https
   axios
-    .post("https://mj0kfg2p-atpao:3001/save-excel", {
-      data: rowData,
-      user: user,
-      marca: marcaValue,
-      por: porValue,
+    .post(http + server + ":" + port + endpointapi, JSON.stringify({ data: Filas, Tienda: TiendaParam }), {
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
     .then(() => {
-      alert("Se ha cargado el pedido exitosamente!");
-      console.log("Se ha cargado el pedido exitosamente!");
+      alert("Se ha cargado el reporte de daños exitosamente!");
+      console.log("Se ha cargado el reporte de daños exitosamente!");
       // Borrar todos los valores de los campos de entrada
       const inputs = document.querySelectorAll("input");
       inputs.forEach((input) => {
@@ -143,12 +143,12 @@ function generateExcel() {
         tableBody.removeChild(tableBody.firstChild);
       }
 
-      // Vaciar rowData
-      rowData = [];
-      let cargarPedidoButton = document.querySelector(
+      // Vaciar Filas
+      Filas = [];
+      let cargarReporteButton = document.querySelector(
         '.button[onclick="generateExcel()"]'
       );
-      cargarPedidoButton.disabled = true;
+      cargarReporteButton.disabled = true;
     })
     .catch((err) => {
       alert("Hubo un error al cargar el pedido");
