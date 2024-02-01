@@ -1,14 +1,13 @@
 // Definición de comunicaión con API
-const http = "http://";
+const http = "https://";
 const server = "localhost";
 //const server = "mj0kfg2p-atpao";
-const port = 3000;
+const port = 3001;
 const endpointapi = "/save-rdanos";
 
 // Se define variable para almacenar los datos de la tabla para el excel
 let Filas = [];
 let imagenes = [];
-
 
 //Funcion que se ejecuta al cargar la página
 window.onload = function () {
@@ -24,9 +23,7 @@ window.onload = function () {
   let cargarReporteButton = document.querySelector(
     '.button[onclick="generateExcel()"]'
   );
-  let añadirFilaButton = document.querySelector(
-    '.button[onclick="addRow()"]'
-  );
+  let añadirFilaButton = document.querySelector('.button[onclick="addRow()"]');
   // Deshabilitar el botón si no hay un usuario
   if (!TiendaParam) {
     cargarReporteButton.disabled = true;
@@ -39,9 +36,7 @@ window.onload = function () {
   inputs.forEach((input) => {
     input.addEventListener("input", () => {
       // Comprobar si alguno de los campos de entrada está vacío
-      const anyInputEmpty = [...inputs].some(
-        (input) => input.value === ""
-      );
+      const anyInputEmpty = [...inputs].some((input) => input.value === "");
 
       // Deshabilitar o habilitar el botón según si alguno de los campos de entrada está vacío o no
       cargarReporteButton.disabled = anyInputEmpty;
@@ -54,18 +49,21 @@ window.onload = function () {
   añadirFilaButton.disabled = true;
 };
 
-
 //Función que añade nueva fila a la tabla
 function addRow() {
-  refInput = document.getElementById('Referencia')
+  refInput = document.getElementById("Referencia");
   const tableBody = document.querySelector("#dynamicTable tbody");
 
-  const comentarioInput = document.getElementById('Comentario');
-  const dañoInput = document.getElementById('Daño');
+  const comentarioInput = document.getElementById("Comentario");
+  const dañoInput = document.getElementById("Daño");
   // Obtén la imagen del input
-  const imageInput = document.getElementById('imagen');
+  const imageInput = document.getElementById("imagen");
 
-  if (refInput.value != "" || dañoInput.value != "" || imageInput.files.length != 0) {
+  if (
+    refInput.value != "" ||
+    dañoInput.value != "" ||
+    imageInput.files.length != 0
+  ) {
     const imageFile = imageInput.files[0];
     const imageUrl = URL.createObjectURL(imageFile);
     // Añadir la imagen al arreglo de imágenes
@@ -83,35 +81,35 @@ function addRow() {
     RefCell.className = "barcode-cell";
     DañoCell.textContent = dañoInput.value;
     DañoCell.className = "quantity-cell";
-    
+
     // Crea un nuevo elemento img y establece su atributo src a la URL de la imagen
-    const imageElement = document.createElement('img');
+    const imageElement = document.createElement("img");
     imageElement.src = imageUrl;
-    imageElement.style.width = '100px'; // Establece el ancho de la imagen
-    imageElement.style.height = '100px'; // Establece la altura de la imagen
+    imageElement.style.width = "100px"; // Establece el ancho de la imagen
+    imageElement.style.height = "100px"; // Establece la altura de la imagen
     imageCell.appendChild(imageElement); // Añade el elemento img a la celda de la imagen
 
     deleteCell.innerHTML = '<button class="delete-button">X</button>';
 
     deleteCell.querySelector(".delete-button").onclick = function () {
       this.parentElement.parentElement.remove();
-  }
-  const buttons = document.querySelectorAll(".button");
-  const addButton = buttons[0]; // Índice 0 para el primer botón
-  addButton.scrollIntoView({ behavior: "smooth", block: "end" });
+    };
+    const buttons = document.querySelectorAll(".button");
+    const addButton = buttons[0]; // Índice 0 para el primer botón
+    addButton.scrollIntoView({ behavior: "smooth", block: "end" });
 
-  // Añade la fila a la lista de filas
-  Filas.push({
-    Referencia: refInput.value,
-    Daño: dañoInput.value,
-    Comentario: comentarioInput.value,
-  })
+    // Añade la fila a la lista de filas
+    Filas.push({
+      Referencia: refInput.value,
+      Daño: dañoInput.value,
+      Comentario: comentarioInput.value,
+    });
 
-  // Vacía los inputs después de añadir la fila
-  imageInput.value = '';
-  refInput.value = '';
-  dañoInput.value = '';
-  comentarioInput.value = '';
+    // Vacía los inputs después de añadir la fila
+    imageInput.value = "";
+    refInput.value = "";
+    dañoInput.value = "";
+    comentarioInput.value = "";
   }
 }
 
@@ -125,15 +123,15 @@ function generateExcel() {
   let formData = new FormData();
 
   // Añadir los datos y la tienda al objeto FormData
-  formData.append('data', JSON.stringify(Filas));
-  formData.append('Tienda', TiendaParam);
+  formData.append("data", JSON.stringify(Filas));
+  formData.append("Tienda", TiendaParam);
 
   // Añadir cada imagen al objeto FormData
   imagenes.forEach((imagen, index) => {
     formData.append(`Imagen${index}`, imagen);
   });
-  
-  console.log(Filas, TiendaParam)
+
+  console.log(Filas, TiendaParam);
   // Enviar el objeto FormData al servidor backend mediante una petición POST
   axios
     .post(http + server + ":" + port + endpointapi, formData)
@@ -153,8 +151,9 @@ function generateExcel() {
         tableBody.removeChild(tableBody.firstChild);
       }
 
-      // Vaciar Filas
+      // Vaciar Filas e imagenes
       Filas = [];
+      imagenes = [];
       let cargarReporteButton = document.querySelector(
         '.button[onclick="generateExcel()"]'
       );
