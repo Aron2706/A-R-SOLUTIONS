@@ -5,6 +5,9 @@ const XLSX = require("xlsx");
 const fs = require("fs");
 const path = require("path");
 const https = require("https");
+// Middleware para subir archivos de tipo form-data
+const multer  = require('multer');
+const upload = multer();
 
 const app = express();
 
@@ -41,11 +44,14 @@ app.post("/save-excel", (req, res) => {
   console.log(formattedDate + " - Pedido " + marca + " de " + user + " solicitado por " + por + " guardado en el servidor");
 });
 
-app.post("/save-excel-danos", (req, res) => {
+app.post("/save-rdanos", upload.any(), (req, res) => {
   try {
     console.log(req.body);
-    const data = req.body.data;
+    const data = JSON.parse(req.body.data);
     const Tienda = req.body.Tienda;
+    // Las imágenes se encuentran en req.files
+    const imagenes = req.files;
+    // Añade la información recibida en json a un archivo de Excel
     const worksheet = XLSX.utils.json_to_sheet(data);
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, "Reporte " + Tienda);
@@ -56,7 +62,16 @@ app.post("/save-excel-danos", (req, res) => {
       date.getMonth() + 1
     }-${date.getDate()}`;
 
+    // Guardar el archivo de Excel en el servidor
     XLSX.writeFile(workbook, path.join(ReportesDalDir, `${formattedDate}-${Tienda}.xlsx`));
+
+    // Guardar las imágenes en el directorio especificado
+    imagenes.forEach((imagen, index) => {
+      const imagePath = path.join(ReportesDalDir, `${formattedDate}-${Tienda} Imagen${index}-${imagen.originalname}`);
+      fs.writeFileSync(imagePath, imagen.buffer);
+    });
+
+
     res.send("Reporte enviado correctamente!");
     console.log(formattedDate + " - Reporte de daños de " + Tienda + " guardado en el servidor");
   } catch (error) {

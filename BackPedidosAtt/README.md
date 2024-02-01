@@ -5,7 +5,13 @@
 npm install
 ```
 
-## Ejecutar backend Node.js
+## Ejecutar backend utilizando npm
+
+```
+npm start
+```
+
+## Ejecutar backend utilizando Node.js
 
 ```
 node server.js

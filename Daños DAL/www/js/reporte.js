@@ -3,11 +3,11 @@ const http = "http://";
 const server = "localhost";
 //const server = "mj0kfg2p-atpao";
 const port = 3000;
-const endpointapi = "/save-excel-danos";
+const endpointapi = "/save-rdanos";
 
 // Se define variable para almacenar los datos de la tabla para el excel
 let Filas = [];
-let Data = new FormData();
+let imagenes = [];
 
 
 //Funcion que se ejecuta al cargar la página
@@ -68,6 +68,8 @@ function addRow() {
   if (refInput.value != "" || dañoInput.value != "" || imageInput.files.length != 0) {
     const imageFile = imageInput.files[0];
     const imageUrl = URL.createObjectURL(imageFile);
+    // Añadir la imagen al arreglo de imágenes
+    imagenes.push(imageFile);
 
     // Crea fila nueva e inserta las columnas
     const newRow = tableBody.insertRow();
@@ -98,11 +100,11 @@ function addRow() {
   const addButton = buttons[0]; // Índice 0 para el primer botón
   addButton.scrollIntoView({ behavior: "smooth", block: "end" });
 
+  // Añade la fila a la lista de filas
   Filas.push({
     Referencia: refInput.value,
     Daño: dañoInput.value,
     Comentario: comentarioInput.value,
-    Imagen: imageFile,
   })
 
   // Vacía los inputs después de añadir la fila
@@ -119,14 +121,22 @@ function generateExcel() {
   let params = new URLSearchParams(window.location.search);
   let TiendaParam = params.get("user");
 
+  // Crear un objeto FormData
+  let formData = new FormData();
+
+  // Añadir los datos y la tienda al objeto FormData
+  formData.append('data', JSON.stringify(Filas));
+  formData.append('Tienda', TiendaParam);
+
+  // Añadir cada imagen al objeto FormData
+  imagenes.forEach((imagen, index) => {
+    formData.append(`Imagen${index}`, imagen);
+  });
+  
   console.log(Filas, TiendaParam)
-  // Guardar el archivo Excel el el servidor mediante el puerto https
+  // Enviar el objeto FormData al servidor backend mediante una petición POST
   axios
-    .post(http + server + ":" + port + endpointapi, JSON.stringify({ data: Filas, Tienda: TiendaParam }), {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    .post(http + server + ":" + port + endpointapi, formData)
     .then(() => {
       alert("Se ha cargado el reporte de daños exitosamente!");
       console.log("Se ha cargado el reporte de daños exitosamente!");
