@@ -12,7 +12,7 @@ Para construir apk de Android usando cordova seguir los siguientes pasos:
 
 * Instalar Android Studio
 
-* Instalar SDK de Android
+* Instalar SDK de Android (A la hora de generar la APK se tenia instalado SDK con API level 26 y 33-ext5)
 
 * Generar proyecto de Android ejecutando el siguiente comando de cordova:
 
@@ -20,7 +20,7 @@ Para construir apk de Android usando cordova seguir los siguientes pasos:
 cordova build android
 ```
 
-Nota: Es posible que lanze errores, ignorar de momento
+Nota: Es posible que lance errores, ignorar de momento
 
 * Abrir proyecto de android ubicado en la subcarpeta ReporteDAL\platfroms\android en Android Studio
 
