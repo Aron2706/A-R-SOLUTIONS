@@ -8,18 +8,18 @@ const https = require("https");
 // Middleware para subir archivos de tipo form-data
 const multer = require("multer");
 const upload = multer();
+const CONFIG = require("./config");
 
 const app = express();
 
 // Configuración de CORS
-const HTTP = false;
-const HTTPS = true;
+const HTTP = CONFIG.HTTP;
+const HTTPS = CONFIG.HTTPS;
 //Configuracion de puertos y directorios
-const HTTP_SERVER_PORT = 3000;
-const HTTPS_SERVER_PORT = 3001;
-const PedidosTestersDir = "//veeam-proxy-tocumen/AttenzaGeneral/Pedido Tester";
-const ReportesDalDir =
-  "//veeam-proxy-tocumen/AttenzaGeneral/Reportes Daños DAL";
+const HTTP_SERVER_PORT = CONFIG.HTTP_SERVER_PORT;
+const HTTPS_SERVER_PORT = CONFIG.HTTPS_SERVER_PORT;
+const PedidosTestersDir = CONFIG.PedidosTestersDir;
+const ReportesDalDir = CONFIG.ReportesDalDir;
 
 app.use(cors());
 app.use(bodyParser.json());

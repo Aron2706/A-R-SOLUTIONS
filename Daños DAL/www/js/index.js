@@ -19,38 +19,43 @@
 
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
-document.addEventListener('deviceready', onDeviceReady, false);
+document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
-    // Cordova is now initialized. Have fun!
+  // Cordova is now initialized. Have fun!
 
-    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    document.getElementById('deviceready').classList.add('ready');
+  console.log("Running cordova-" + cordova.platformId + "@" + cordova.version);
+  document.getElementById("deviceready").classList.add("ready");
 }
 
-function LOGI() {
-    let usermin = document.getElementById("user").value;
-    let user = usermin.toUpperCase();
-    let pass = document.getElementById("pass").value;
-  
-    if (user == "GRD1" && pass == "1234") {
-      window.location = "solicitud.html?user=" + user;
-    } else if (user == "SAT2" && pass == "1234") {
-      window.location = "solicitud.html?user=" + user;
-    } else if (user == "SAT3" && pass == "1234") {
-      window.location = "solicitud.html?user=" + user;
-    } else if (user == "SAT4" && pass == "1234") {
-      window.location = "solicitud.html?user=" + user;
-    } else if (user == "GRT2" && pass == "1234") {
-      window.location = "solicitud.html?user=" + user;
-    } else if (user == "PLT2" && pass == "1234") {
-      window.location = "solicitud.html?user=" + user;
-    } else {
-      alert("Usuario o contraseña son incorrectos");
-    }
-  }
+//Se importa configuración y nombre de HTML a redirigir
+import config from "./config.js";
+const html = config.htmlmodulo;
 
-  document.getElementById("loginform").addEventListener("submit", function(event){
+//Función con la que se obtiene el usuario y contraseña y redirecciona a la página especificada e la configuración
+function LOGI() {
+  let usermin = document.getElementById("user").value;
+  let user = usermin.toUpperCase();
+  let pass = document.getElementById("pass").value;
+  let url = html + "?user=" + user;
+
+  if (
+    (user == "GRD1" && pass == "1234") ||
+    (user == "SAT2" && pass == "1234") ||
+    (user == "SAT3" && pass == "1234") ||
+    (user == "SAT4" && pass == "1234") ||
+    (user == "GRT2" && pass == "1234") ||
+    (user == "PLT2" && pass == "1234")
+  ) {
+    window.location = url;
+  } else {
+    alert("Usuario o contraseña son incorrectos");
+  }
+}
+
+document
+  .getElementById("loginform")
+  .addEventListener("submit", function (event) {
     event.preventDefault();
     LOGI();
   });

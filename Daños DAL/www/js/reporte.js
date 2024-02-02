@@ -1,9 +1,9 @@
 // Definición de comunicaión con API
-const http = "https://";
-const server = "localhost";
-//const server = "mj0kfg2p-atpao";
-const port = 3001;
-const endpointapi = "/save-rdanos";
+import config from "./config.js";
+const http = config.http;
+const server = config.server;
+const port = config.port;
+const endpointapi = config.endpointapi;
 
 // Se define variable para almacenar los datos de la tabla para el excel
 let Filas = [];
@@ -51,7 +51,7 @@ window.onload = function () {
 
 //Función que añade nueva fila a la tabla
 function addRow() {
-  refInput = document.getElementById("Referencia");
+  const refInput = document.getElementById("Referencia");
   const tableBody = document.querySelector("#dynamicTable tbody");
 
   const comentarioInput = document.getElementById("Comentario");
@@ -164,3 +164,6 @@ function generateExcel() {
       console.error(err);
     });
 }
+
+window.generateExcel = generateExcel;
+window.addRow = addRow;
