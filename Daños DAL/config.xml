@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ars.pedidosatt" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Pedidos Attenza</name>
-    <description>App para realizar pedidos</description>
+<widget id="io.ars.danosdal" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>DañosDAL</name>
+    <description>App para reportar Daños DAL</description>
     <author email="a.rangel@motta-int.com" href="https://www.attenza.net">
         ARSolutions
     </author>

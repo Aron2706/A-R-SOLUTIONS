@@ -1,8 +1,8 @@
 {
-  "name": "io.ars.pedidosatt",
-  "displayName": "Pedidos Attenza",
+  "name": "io.ars.danosdal",
+  "displayName": "Reporte Daños DAL",
   "version": "1.0.0",
-  "description": "App para solicitar pedidos",
+  "description": "App para reportar Daños DAL",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
