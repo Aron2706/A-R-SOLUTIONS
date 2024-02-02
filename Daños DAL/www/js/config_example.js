@@ -4,6 +4,7 @@ const config = {
   server: "localhost",
   port: 3001,
   endpointapi: "/save-excel",
+  htmlmodulo: "modulo.html",
 };
 
 export default config;
