@@ -25,7 +25,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public"))); // Asume que tus archivos estáticos (html, css, js) están en una carpeta llamada 'public'
 
-// Leer la clave y el certificado
+// Leer la clave (key.pem) y el certificado (cert.pem) en el mismo directorio que server.js
 const key = fs.readFileSync(path.resolve(__dirname, "key.pem"));
 const cert = fs.readFileSync(path.resolve(__dirname, "cert.pem"));
 
@@ -93,7 +93,7 @@ app.post("/save-rdanos", upload.any(), (req, res) => {
     imagenes.forEach((imagen, index) => {
       const imagePath = path.join(
         ReportesDalDir,
-        `${formattedDate}-${Tienda}-Imagen${index + 1}-${imagen.originalname}`
+        `${formattedDate}-${Tienda}-Imagen${index + 1}`
       );
       fs.writeFileSync(imagePath, imagen.buffer);
     });

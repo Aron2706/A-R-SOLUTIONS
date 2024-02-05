@@ -8,6 +8,7 @@ const endpointapi = config.endpointapi;
 // Se define variable para almacenar los datos de la tabla para el excel
 let Filas = [];
 let imagenes = [];
+let nFilas = 0;
 
 //Funcion que se ejecuta al cargar la página
 window.onload = function () {
@@ -64,6 +65,7 @@ function addRow() {
     dañoInput.value != "" ||
     imageInput.files.length != 0
   ) {
+    nFilas++;
     const imageFile = imageInput.files[0];
     const imageUrl = URL.createObjectURL(imageFile);
     // Añadir la imagen al arreglo de imágenes
@@ -100,6 +102,7 @@ function addRow() {
 
     // Añade la fila a la lista de filas
     Filas.push({
+      No: nFilas,
       Referencia: refInput.value,
       Daño: dañoInput.value,
       Comentario: comentarioInput.value,
@@ -154,6 +157,7 @@ function generateExcel() {
       // Vaciar Filas e imagenes
       Filas = [];
       imagenes = [];
+      nFilas = 0;
       let cargarReporteButton = document.querySelector(
         '.button[onclick="generateExcel()"]'
       );
