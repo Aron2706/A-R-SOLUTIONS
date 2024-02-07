@@ -30,7 +30,7 @@ function onDeviceReady() {
 
 //Se importa configuración y nombre de HTML a redirigir
 import config from "./config.js";
-const html = config.htmlmodulo;
+const html = config.html2;
 
 //Función con la que se obtiene el usuario y contraseña y redirecciona a la página especificada e la configuración
 function LOGI() {

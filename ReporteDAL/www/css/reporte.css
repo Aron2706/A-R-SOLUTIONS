@@ -16,7 +16,7 @@
   align-items: center;
   min-height: 100vh;
   background-color: rgba(39, 128, 211, 0.548);
-  background-image: url("../img/solicitud.jpeg"); /* Reemplaza 'ruta/a/tu/imagen.jpg' con la ruta real de tu imagen */
+  background-image: url("../img/reporte.jpeg"); /* Reemplaza 'ruta/a/tu/imagen.jpg' con la ruta real de tu imagen */
   background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el cuerpo */
   background-position: center; /* Centra la imagen */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
