@@ -29,6 +29,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
           cache-dependency-path: BackAttenza/package-lock.json
+      - name: Checkout submodules
+        run: |
+            git submodule init
+            git submodule update
       - name: Create config.json
         run: echo "${{ secrets.CONFIG_JSON }}" | base64 --decode > config.json
         working-directory: BackAttenza
