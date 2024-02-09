@@ -1,0 +1,3 @@
+[submodule "BackAttenza"]
+	path = BackAttenza
+	url = git@github.com:rsilva48/AttApp.git
