@@ -12,3 +12,16 @@ function removeActiveClasses() {
         panel.classList.remove('active')
     })
 }
+
+let observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('hidden');
+        observer.unobserve(entry.target); // Deja de observar el elemento
+      }
+    });
+  });
+  
+  document.querySelectorAll('.tex').forEach(element => {
+    observer.observe(element);
+  });

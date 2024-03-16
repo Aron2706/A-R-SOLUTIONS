@@ -7,8 +7,12 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .all {
-  margin: 0% 15% 0% 15%;
+  margin: 0% 25% 0% 25%;
 }
 
 body {
@@ -146,11 +150,15 @@ input[type="checkbox"] {
   margin-right: 0.5rem;
 }
 
-p {
+.tex {
   font-size: 18px;
   animation-name: miani;
-  animation-duration: 5s;
+  animation-duration: 3s;
   color: white;
+}
+
+.hidden {
+  animation-name: none;
 }
 
 input[type="submit"] {
@@ -200,6 +208,7 @@ input[type="submit"]:hover {
 .IMG1 {
   padding: 0px 30px 0px 0px;
   height: auto;
+  object-fit: contain;
 }
 
 /* Elementos de la barra de navegación */
@@ -214,14 +223,14 @@ nav {
   align-items: center;
 }
 
-nav > a {
+nav>a {
   color: black;
   text-decoration: none;
   padding: 8px 18px;
   border-radius: 22px;
 }
 
-nav > a:hover {
+nav>a:hover {
   transition: 0.25s;
   background: rgb(56, 130, 209);
   color: white;
@@ -237,6 +246,15 @@ span {
   border-radius: 22px;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.274);
   flex-direction: row;
+}
+
+.anchor {
+  display: block;
+  height: 85px;
+  /* Ajusta este valor al tamaño de tu barra de navegación */
+  margin-top: -85px;
+  /* Este valor debe ser el negativo del valor de la altura */
+  visibility: hidden;
 }
 
 .BACK {
@@ -260,8 +278,16 @@ span {
   nav {
     padding-top: 20px;
   }
+
   body {
     padding-top: 145px;
+  }
+
+  .anchor {
+    height: 145px;
+    /* Ajusta este valor al tamaño de tu barra de navegación */
+    margin-top: -145px;
+    /* Este valor debe ser el negativo del valor de la altura */
   }
 }
 
