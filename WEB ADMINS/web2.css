@@ -1,0 +1,215 @@
+/* Importar fuente de Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+/* Estilos generales */
+*{
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.all{
+  margin: 0px 160px 0px 160px;
+
+}
+body{
+  padding-top: 85px;
+  background-color: rgba(255, 255, 255, 0.13);
+  flex:content;
+  margin: 0px;
+  letter-spacing: 3px;
+  
+}
+.container {
+  display: flex;
+  width: 90vw;
+  background-color:whitesmoke;
+}
+
+.panel { 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 10px;
+  cursor: pointer;
+  flex: 0.5;
+  margin: 5px;
+  position: relative;
+  -webkit-transition: all 360ms ease;
+}
+
+.panel h3 {
+  font-size: 24px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+}
+
+
+.panel.active {
+  flex: 5;
+}
+
+.panel.active h3 {
+  font-family: 'Courier New', Courier, monospace;
+  opacity: 3;
+  transition: opacity 0.8s ease 0.6s;
+  text-shadow: 0px 0px 10px rgb(2, 0, 0);
+  color: white;
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 20vw;
+  }
+
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none;
+  }
+}
+
+/* Estilos de encabezado */
+.header {
+  top: 0px;
+  position:fixed;
+  font-size: 18px;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: whitesmoke;
+  width: 100%;
+  padding: 1rem;
+  text-align: left;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.425);
+  z-index: 1000;
+  display: flex;
+}
+
+
+/* Estilos de secciones principales */
+section {
+  padding: 2rem;
+  margin-bottom: 1rem;
+  border: 4px solid #ddd;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 10px;
+  background-color: #8ca6b5;
+  box-shadow: 2px 2px 20px rgba(0,0,0,0.3);
+}
+
+/* Icono de WhatsApp */
+#whatsapp-icon {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.2s ease;
+}
+#whatsapp-icon:hover {
+  transform: scale(1.3);
+}
+
+/* Estilos del formulario */
+form {
+  align-items: center;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  border: 4px solid #ddd;
+  border-radius: 10px;
+  display: flex;
+  border-radius: 10px;
+  background-color: rgba(88, 166, 180, 0.541);
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.767);
+  flex-direction: column;
+}
+
+form label {
+  margin-bottom: 0.5rem;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+p{
+font-size: 18px;
+animation-name: miani;
+animation-duration: 5s; 
+color: white;
+}
+
+
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e4199;
+}
+
+@keyframes miani {
+  0% {opacity: 0%;}
+  5% {opacity: 10%;}
+  15% {opacity: 20%;}
+  25% {opacity: 40%;}
+  50%{opacity: 60%;}
+  75%{opacity: 80%;}
+  100%{opacity: 100%;}
+}
+
+nav{
+  background-color: whitesmoke;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+  border-radius: 22px;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.692);
+  flex-direction: row;
+}
+
+nav > a {
+  color: black;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 22px;
+}
+
+nav > a:hover {
+  transition: 0.25s;
+  background:rgb(56, 130,209 );
+  color: white;
+}
+span{
+  font-size: 25px;
+  background-color: whitesmoke;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-around;
+  padding: 18px;
+  border-radius: 22px;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.274);
+  flex-direction: row;
+
+}
+.BACK{
+  background-color: #447ebc;
+}
