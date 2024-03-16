@@ -1,29 +1,31 @@
 /* Importar fuente de Google Fonts */
-@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
 
 /* Estilos generales */
-*{
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+* {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-.all{
-  margin: 0px 160px 0px 160px;
 
+.all {
+  margin: 0% 15% 0% 15%;
 }
-body{
+
+body {
   padding-top: 85px;
   background-color: rgba(255, 255, 255, 0.13);
-  flex:content;
+  flex: content;
   margin: 0px;
   letter-spacing: 3px;
-  
 }
+
 .container {
   display: flex;
   width: 90vw;
-  background-color:whitesmoke;
+  background-color: whitesmoke;
 }
 
-.panel { 
+.panel {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -45,13 +47,12 @@ body{
   opacity: 0;
 }
 
-
 .panel.active {
   flex: 5;
 }
 
 .panel.active h3 {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   opacity: 3;
   transition: opacity 0.8s ease 0.6s;
   text-shadow: 0px 0px 10px rgb(2, 0, 0);
@@ -72,9 +73,9 @@ body{
 /* Estilos de encabezado */
 .header {
   top: 0px;
-  position:fixed;
+  position: fixed;
   font-size: 18px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   background-color: whitesmoke;
   width: 100%;
   padding: 1rem;
@@ -82,8 +83,9 @@ body{
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.425);
   z-index: 1000;
   display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-
 
 /* Estilos de secciones principales */
 section {
@@ -95,7 +97,7 @@ section {
   justify-content: space-around;
   border-radius: 10px;
   background-color: #8ca6b5;
-  box-shadow: 2px 2px 20px rgba(0,0,0,0.3);
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Icono de WhatsApp */
@@ -104,6 +106,7 @@ section {
   height: 50px;
   transition: transform 0.2s ease;
 }
+
 #whatsapp-icon:hover {
   transform: scale(1.3);
 }
@@ -124,7 +127,8 @@ form {
 
 form label {
   margin-bottom: 0.5rem;
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 input[type="text"],
@@ -142,17 +146,15 @@ input[type="checkbox"] {
   margin-right: 0.5rem;
 }
 
-p{
-font-size: 18px;
-animation-name: miani;
-animation-duration: 5s; 
-color: white;
+p {
+  font-size: 18px;
+  animation-name: miani;
+  animation-duration: 5s;
+  color: white;
 }
 
-
-
 input[type="submit"] {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: #fff;
   border: none;
   padding: 0.5rem 1rem;
@@ -166,39 +168,66 @@ input[type="submit"]:hover {
 }
 
 @keyframes miani {
-  0% {opacity: 0%;}
-  5% {opacity: 10%;}
-  15% {opacity: 20%;}
-  25% {opacity: 40%;}
-  50%{opacity: 60%;}
-  75%{opacity: 80%;}
-  100%{opacity: 100%;}
+  0% {
+    opacity: 0%;
+  }
+
+  5% {
+    opacity: 10%;
+  }
+
+  15% {
+    opacity: 20%;
+  }
+
+  25% {
+    opacity: 40%;
+  }
+
+  50% {
+    opacity: 60%;
+  }
+
+  75% {
+    opacity: 80%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
 }
 
-nav{
+.IMG1 {
+  padding: 0px 30px 0px 0px;
+  height: auto;
+}
+
+/* Elementos de la barra de navegación */
+nav {
   background-color: whitesmoke;
   padding: 1rem;
   display: flex;
   justify-content: space-around;
-  padding: 5px;
+  padding: 5px 26px;
   border-radius: 22px;
-  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.692);
   flex-direction: row;
+  align-items: center;
 }
 
 nav > a {
   color: black;
   text-decoration: none;
-  padding: 8px 16px;
+  padding: 8px 18px;
   border-radius: 22px;
 }
 
 nav > a:hover {
   transition: 0.25s;
-  background:rgb(56, 130,209 );
+  background: rgb(56, 130, 209);
   color: white;
 }
-span{
+
+span {
   font-size: 25px;
   background-color: whitesmoke;
   padding: 8px 16px;
@@ -208,8 +237,42 @@ span{
   border-radius: 22px;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.274);
   flex-direction: row;
-
 }
-.BACK{
+
+.BACK {
   background-color: #447ebc;
+}
+
+/* Responsive */
+@media (max-width: 1920px) {
+  .all {
+    margin: 0px 10% 0px 10%;
+  }
+}
+
+@media (max-width: 1080px) {
+  .all {
+    margin: 0px 60px 0px 60px;
+  }
+}
+
+@media (max-width: 975px) {
+  nav {
+    padding-top: 20px;
+  }
+  body {
+    padding-top: 145px;
+  }
+}
+
+@media (max-width: 800px) {
+  .all {
+    margin: 0px 60px 0px 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .all {
+    margin: 0px 40px 0px 40px;
+  }
 }
