@@ -11,9 +11,6 @@ html {
   scroll-behavior: smooth;
 }
 
-.all {
-  margin: 0% 25% 0% 25%;
-}
 
 body {
   padding-top: 85px;
@@ -27,6 +24,10 @@ body {
   display: flex;
   width: 90vw;
   background-color: whitesmoke;
+}
+
+.content-container{
+  margin: 0% 25% 0% 25%;
 }
 
 .panel {
@@ -95,13 +96,47 @@ body {
 section {
   padding: 2rem;
   margin-bottom: 1rem;
-  border: 4px solid #ddd;
   border-radius: 10px;
-  display: flex;
+  display: flex ;
   justify-content: space-around;
   border-radius: 10px;
+  /* box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3); */
+}
+
+/*Fondo de Servicios*/
+.BACK1 {
+  width: 100%;
   background-color: #8ca6b5;
-  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+/*Fondo de Quienes Somos*/
+.BACK2 {
+  width: 100%;
+  background-color: #447ebc;
+}
+
+/*Fondo de Formulario*/
+.BACK3 {
+  width: 100%;
+  background-color: rgba(88, 166, 180, 0.541);
+}
+
+/* Estilos del formulario */
+form {
+  align-items: center;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  display: flex;
+  border-radius: 10px;
+  /* box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.767); */
+  flex-direction: column;
+}
+
+form label {
+  margin-bottom: 0.5rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 /* Icono de WhatsApp */
@@ -113,26 +148,6 @@ section {
 
 #whatsapp-icon:hover {
   transform: scale(1.3);
-}
-
-/* Estilos del formulario */
-form {
-  align-items: center;
-  padding: 2rem;
-  margin-bottom: 1rem;
-  border: 4px solid #ddd;
-  border-radius: 10px;
-  display: flex;
-  border-radius: 10px;
-  background-color: rgba(88, 166, 180, 0.541);
-  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.767);
-  flex-direction: column;
-}
-
-form label {
-  margin-bottom: 0.5rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 input[type="text"],
@@ -257,19 +272,16 @@ span {
   visibility: hidden;
 }
 
-.BACK {
-  background-color: #447ebc;
-}
 
 /* Responsive */
 @media (max-width: 1920px) {
-  .all {
+  .content-container {
     margin: 0px 10% 0px 10%;
   }
 }
 
 @media (max-width: 1080px) {
-  .all {
+  .content-container {
     margin: 0px 60px 0px 60px;
   }
 }
@@ -292,13 +304,13 @@ span {
 }
 
 @media (max-width: 800px) {
-  .all {
+  .content-container {
     margin: 0px 60px 0px 60px;
   }
 }
 
 @media (max-width: 480px) {
-  .all {
+  .content-container {
     margin: 0px 40px 0px 40px;
   }
 }
