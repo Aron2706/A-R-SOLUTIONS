@@ -29,3 +29,7 @@ let observer = new IntersectionObserver((entries, observer) => {
   $('.navbar-nav .nav-link').on('click', function() {
     $('.navbar-collapse').collapse('hide');
   });
+
+  $('.navbar-brand').on('click', function() {
+    $('.navbar-collapse').collapse('hide');
+  });
