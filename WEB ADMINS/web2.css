@@ -33,11 +33,6 @@ body::before {
   z-index: -1; /* Esto asegurará que el fondo borroso esté detrás del contenido */
 }
 
-.container {
-  display: flex;
-  width: 90vw;
-  background-color: whitesmoke;
-}
 
 .content-container {
   margin: 0% 25% 0% 25%;
@@ -77,16 +72,6 @@ body::before {
   color: white;
 }
 
-@media (max-width: 480px) {
-  .container {
-    width: 20vw;
-  }
-
-  .panel:nth-of-type(4),
-  .panel:nth-of-type(5) {
-    display: none;
-  }
-}
 
 /* Estilos de encabezado */
 .header {
@@ -94,16 +79,13 @@ body::before {
   position: fixed;
   font-size: 18px;
   font-family: "Courier New", Courier, monospace;
-  background-color: whitesmoke;
   width: 100%;
-  padding: 1rem;
   text-align: left;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.425);
   z-index: 1000;
-  display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
 }
+
 
 /* Estilos de secciones principales */
 section {
@@ -112,7 +94,6 @@ section {
   border-radius: 10px;
   display: flex;
   justify-content: space-around;
-  border-radius: 10px;
   /* box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3); */
 }
 
@@ -198,6 +179,7 @@ input[type="submit"] {
   background-color: #4caf50;
   color: #fff;
   border: none;
+  margin-top: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
@@ -245,6 +227,7 @@ input[type="submit"]:hover {
 }
 
 /* Elementos de la barra de navegación */
+/*
 nav {
   background-color: whitesmoke;
   padding: 1rem;
@@ -255,24 +238,25 @@ nav {
   flex-direction: row;
   align-items: center;
 }
+*/
 
-nav > a {
+nav .navbar-nav .nav-item .nav-link {
   color: black;
   text-decoration: none;
   padding: 8px 18px;
   border-radius: 22px;
 }
 
-nav > a:hover {
+nav .navbar-nav .nav-item .nav-link:hover {
   transition: 0.25s;
   background: rgb(56, 130, 209);
   color: white;
 }
 
-span {
+.titulo {
+  margin: 0% 25% 0% 25%;
   font-size: 25px;
   background-color: whitesmoke;
-  padding: 8px 16px;
   display: flex;
   justify-content: space-around;
   padding: 18px;
@@ -322,12 +306,16 @@ span {
 
 @media (max-width: 800px) {
   .content-container {
-    margin: 0px 60px 0px 60px;
+    margin: 0px 40px 0px 40px;
   }
 }
 
 @media (max-width: 480px) {
   .content-container {
-    margin: 0px 40px 0px 40px;
+    margin: 0px 10px;
+  }
+  .titulo {
+    margin: 0% 0% 0% 0%;
+    border-radius: 0px;
   }
 }

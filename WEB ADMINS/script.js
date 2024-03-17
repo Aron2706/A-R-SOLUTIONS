@@ -25,3 +25,7 @@ let observer = new IntersectionObserver((entries, observer) => {
   document.querySelectorAll('.tex').forEach(element => {
     observer.observe(element);
   });
+
+  $('.navbar-nav .nav-link').on('click', function() {
+    $('.navbar-collapse').collapse('hide');
+  });
