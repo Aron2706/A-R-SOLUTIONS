@@ -17,8 +17,11 @@ body {
   flex: content;
   margin: 0px;
   letter-spacing: 3px;
-  background-image: url("BG.jpg");
   background-size: cover;
+}
+
+body.lazyloaded {
+  background-image: url(BG.jpg);
 }
 
 body::before {
@@ -39,16 +42,23 @@ body::before {
 }
 
 .panel {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  position: relative;
   height: 80vh;
   border-radius: 10px;
   cursor: pointer;
   flex: 0.5;
   margin: 5px;
-  position: relative;
+  overflow: hidden; /* Asegura que la imagen no se desborde del panel */
   -webkit-transition: all 360ms ease;
+}
+
+.panel img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Mantiene la proporción de la imagen mientras la escala para llenar el panel */
 }
 
 .panel h3 {

@@ -14,12 +14,12 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body>
+<body data-bg="BG.jpg" class="lazyload">
     <header class="header">
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <img src="logo.png" class="IMG1" alt="Logo">
+                    <img data-src="logo.png" class="IMG1 lazyload" alt="Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,21 +53,25 @@
         <div class="BACK1">
             <div class="content-container">
                 <section>
-                    <div class="panel active" style="background-image: url('SEGURIDAD.jpg')">
+                    <div class="panel active">
+                        <img data-src="SEGURIDAD.jpg" class="lazyload" alt="Seguridad">
                         <h3>"Seguridad" <br> Contamos con personal entrenado que estaran brindando seguridad las 24/7
-                            horas
-                            de dia</h3>
+                            horas de dia</h3>
                     </div>
-                    <div class="panel" style="background-image: url('PINTU.jpg')">
+                    <div class="panel">
+                        <img data-src="PINTU.jpg" class="lazyload" alt="Pinturas">
                         <h3>Pinturas</h3>
                     </div>
-                    <div class="panel" style="background-image: url('ADMIN2.jpg')">
+                    <div class="panel">
+                        <img data-src="ADMIN2.jpg" class="lazyload" alt="Administracion">
                         <h3>Administracion</h3>
                     </div>
-                    <div class="panel" style="background-image: url('MANTENIMIENTO3.jpg')">
+                    <div class="panel">
+                        <img data-src="MANTENIMIENTO3.jpg" class="lazyload" alt="Electricos">
                         <h3>Electricos</h3>
                     </div>
-                    <div class="panel" style="background-image: url('LIMPIEZA.jpg')">
+                    <div class="panel">
+                        <img data-src="LIMPIEZA.jpg" class="lazyload" alt="Limpieza">
                         <h3>Limpieza</h3>
                     </div>
                 </section>
@@ -169,6 +173,8 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/plugins/bgset/ls.bgset.min.js"></script>
     <script src="script.js"></script>
 </body>
 
