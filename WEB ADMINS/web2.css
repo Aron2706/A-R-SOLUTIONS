@@ -323,6 +323,10 @@ footer {
   background-size: inherit;
 }
 
+.copy a {
+  color: white;
+}
+
 /* Responsive */
 @media (max-width: 1920px) {
   .content-container {
