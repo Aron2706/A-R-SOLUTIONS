@@ -161,10 +161,23 @@ input[type="checkbox"] {
 }
 
 .tex {
+  display: block;
   font-size: 18px;
   animation-name: miani;
   animation-duration: 3s;
   color: white;
+  justify-content: space-around;
+  padding: 2rem 0rem;
+}
+
+.tex p{
+  margin-top: 0.5em;
+  margin-bottom: 1.5em;
+  text-align: justify;
+}
+
+.tex strong{
+  margin-bottom: 1em;
 }
 
 .hidden {
