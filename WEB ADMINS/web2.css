@@ -79,10 +79,10 @@ body::before {
   font-weight: 400;
   opacity: 3;
   transition: opacity 0.8s ease 0.6s;
-  text-shadow: 1px 1px 0 rgb(0, 110, 255), -1px -1px 0 rgb(0, 110, 255), 1px -1px 0 rgb(0, 110, 255), -1px 1px 0 rgb(0, 110, 255);
+  text-shadow: 1px 1px 0 rgba(135, 207, 235, 0.712), -1px -1px 0 rgba(135, 207, 235, 0.712), 1px -1px 0 rgba(135, 207, 235, 0.712), -1px 1px 0 rgba(135, 207, 235, 0.712);
   color: white;
   font-size: 28px;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 /* Estilos de encabezado */
