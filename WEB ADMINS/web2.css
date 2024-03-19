@@ -75,11 +75,14 @@ body::before {
 }
 
 .panel.active h3 {
-  font-family: "Courier New", Courier, monospace;
+  
+  font-weight: 400;
   opacity: 3;
   transition: opacity 0.8s ease 0.6s;
-  text-shadow: 0px 0px 10px rgb(2, 0, 0);
+  text-shadow: 1px 1px 0 rgb(0, 110, 255), -1px -1px 0 rgb(0, 110, 255), 1px -1px 0 rgb(0, 110, 255), -1px 1px 0 rgb(0, 110, 255);
   color: white;
+  font-size: 28px;
+  letter-spacing: 1px;
 }
 
 /* Estilos de encabezado */
@@ -357,39 +360,16 @@ footer {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 912px) {
   .content-container {
     margin: 0px 40px 0px 40px;
   }
   body {
     padding-top: 60px;
   }
-  .foot {
+  .foot, .insta, .face {
     margin-left: 250px;
     margin-right: 250px;
-    background-color: #4caf5099;
-    display: flex;
-    justify-content: center;
-    border-radius: 50px;
-    height: 50px;
-  }
-  .insta {
-    margin-left: 250px;
-    margin-right: 250px;
-    background-color: #af4caa99;
-    display: flex;
-    justify-content: center;
-    border-radius: 50px;
-    height: 50px;
-  }
-  .face {
-    margin-left: 250px;
-    margin-right: 250px;
-    background-color: #1608d481;
-    display: flex;
-    justify-content: center;
-    border-radius: 50px;
-    height: 50px;
   }
 }
 
@@ -408,31 +388,9 @@ footer {
     height: 60px;
     margin-top: -60px;
   }
-  .foot {
+  .foot, .insta, .face{
     margin-left: 80px;
     margin-right: 80px;
-    background-color: #4caf5099;
-    display: flex;
-    justify-content: center;
-    border-radius: 50px;
-    height: 50px;
-  }
-  .insta {
-    margin-left: 80px;
-    margin-right: 80px;
-    background-color: #af4caa99;
-    display: flex;
-    justify-content: center;
-    border-radius: 50px;
-    height: 50px;
-  }
-  .face {
-    margin-left: 80px;
-    margin-right: 80px;
-    background-color: #1608d481;
-    display: flex;
-    justify-content: center;
-    border-radius: 50px;
     height: 50px;
   }
   .formu {
@@ -444,5 +402,19 @@ footer {
   }
   .panel {
     height: 50vh;
+  }
+  .panel.active h3 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 320px) {
+  .foot, .insta, .face{
+    margin-left: 40px;
+    margin-right: 40px;
+    height: 50px;
+  }
+  .panel.active h3 {
+    font-size: 12px;
   }
 }
