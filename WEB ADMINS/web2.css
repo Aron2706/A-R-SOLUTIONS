@@ -419,6 +419,9 @@ footer {
   .panel.active h3 {
     font-size: 18px;
   }
+  .tex p{
+    text-align: left;
+  }
 }
 
 @media (max-width: 320px) {
