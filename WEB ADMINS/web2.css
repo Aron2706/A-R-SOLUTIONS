@@ -42,7 +42,7 @@ body::before {
 
 .panel {
   position: relative;
-  height: 80vh;
+  height: 50vh;
   border-radius: 10px;
   cursor: pointer;
   flex: 0.5;
@@ -352,6 +352,9 @@ footer {
   .content-container {
     margin: 0px 40px 0px 40px;
   }
+  body {
+    padding-top: 60px;
+  }
   .foot {
     margin-left: 250px;
     margin-right: 250px;
@@ -429,5 +432,8 @@ footer {
   }
   .tex {
     margin: 0px 20px;
+  }
+  .panel {
+    height: 50vh;
   }
 }
