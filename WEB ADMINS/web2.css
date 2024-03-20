@@ -18,7 +18,7 @@ body {
   margin: 0px;
   letter-spacing: 2px;
   background-size: cover;
-  white-space:inherit
+  white-space: inherit;
 }
 
 body.lazyloaded {
@@ -79,7 +79,9 @@ body::before {
   font-weight: 400;
   opacity: 3;
   transition: opacity 0.8s ease 0.6s;
-  text-shadow: 1px 1px 0 rgba(135, 207, 235, 0.712), -1px -1px 0 rgba(135, 207, 235, 0.712), 1px -1px 0 rgba(135, 207, 235, 0.712), -1px 1px 0 rgba(135, 207, 235, 0.712);
+  text-shadow: 1px 1px 0 rgba(135, 207, 235, 0.712),
+    -1px -1px 0 rgba(135, 207, 235, 0.712),
+    1px -1px 0 rgba(135, 207, 235, 0.712), -1px 1px 0 rgba(135, 207, 235, 0.712);
   color: white;
   font-size: 28px;
   letter-spacing: 2px;
@@ -152,7 +154,7 @@ textarea {
   padding: 0.4rem;
   border-radius: 8px;
   margin-bottom: 1rem;
-  border:none;
+  border: none;
 }
 
 input[type="checkbox"] {
@@ -170,16 +172,19 @@ input[type="checkbox"] {
   padding: 2rem 0rem;
 }
 
-.tex p{
-/* margin-top: 0.5em;
+.tex p {
+  /* margin-top: 0.5em;
   margin-bottom: 1.5em;*/
-  text-align: justify; 
+  text-align: justify;
 }
-
-.tex strong{
+.tex h2 {
+  font-size: 1.5em;
+}
+.tex strong {
   margin-bottom: 1em;
 }
-.tex p, .tex strong{
+.tex p,
+.tex strong {
   margin: 0.5em 18% 1.5em;
 }
 .hidden {
@@ -199,7 +204,7 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   background-color: #001dc2da;
-  transform:scale(1.1);
+  transform: scale(1.1);
 }
 
 @keyframes miani {
@@ -253,7 +258,7 @@ nav .navbar-nav .nav-item .nav-link:hover {
 
 .titulo {
   margin: 20px 25% 20px 25%;
-  font-size: 22px;
+  /*font-size: 22px;*/
   background-color: whitesmoke;
   display: flex;
   justify-content: space-around;
@@ -261,6 +266,10 @@ nav .navbar-nav .nav-item .nav-link:hover {
   border-radius: 22px;
   box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.192);
   flex-direction: row;
+}
+
+h1.titulo {
+  font-size: 1.8em;
 }
 
 .anchor {
@@ -308,7 +317,9 @@ nav .navbar-nav .nav-item .nav-link:hover {
   margin-bottom: 18px;
 }
 
-.foot a, .insta a, .face a {
+.foot a,
+.insta a,
+.face a {
   display: flex;
   align-items: center;
 }
@@ -358,6 +369,12 @@ footer {
   .content-container {
     margin: 0px 60px 0px 60px;
   }
+  .foot,
+  .insta,
+  .face {
+    margin-left: 290px;
+    margin-right: 290px;
+  }
 }
 
 @media (max-width: 975px) {
@@ -384,9 +401,42 @@ footer {
   body {
     padding-top: 60px;
   }
-  .foot, .insta, .face {
+  .foot,
+  .insta,
+  .face {
     margin-left: 250px;
     margin-right: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-container {
+    margin: 0px 15px;
+  }
+  h1.titulo {
+    font-size: 1.6em;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    width: 85%;
+  }
+  .tex {
+    margin: 0px 20px;
+    font-size: 14px;
+  }
+  .tex p,
+  .tex strong {
+    margin: 0.5em 15px 1.5em;
+  }
+
+  .foot,
+  .insta,
+  .face {
+    margin-left: 120px;
+    margin-right: 120px;
+    height: 50px;
   }
 }
 
@@ -405,7 +455,9 @@ footer {
     height: 60px;
     margin-top: -60px;
   }
-  .foot, .insta, .face{
+  .foot,
+  .insta,
+  .face {
     margin-left: 80px;
     margin-right: 80px;
     height: 50px;
@@ -418,9 +470,9 @@ footer {
     margin: 0px 20px;
     font-size: 14px;
   }
-  .tex p, .tex strong{
+  .tex p,
+  .tex strong {
     margin: 0.5em 15px 1.5em;
-
   }
   .panel {
     height: 50vh;
@@ -428,18 +480,32 @@ footer {
   .panel.active h3 {
     font-size: 18px;
   }
-  .tex p{
+  .tex p {
     text-align: left;
+  }
+  h1.titulo {
+    font-size: 1.5em;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    width: 90%;
   }
 }
 
 @media (max-width: 320px) {
-  .foot, .insta, .face{
+  .foot,
+  .insta,
+  .face {
     margin-left: 40px;
     margin-right: 40px;
     height: 50px;
   }
   .panel.active h3 {
     font-size: 12px;
+  }
+  h1.titulo {
+    font-size: 1.2em;
   }
 }
