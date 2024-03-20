@@ -16,8 +16,9 @@ body {
   background-color: rgba(255, 255, 255, 0.13);
   flex: content;
   margin: 0px;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   background-size: cover;
+  white-space:inherit
 }
 
 body.lazyloaded {
@@ -75,7 +76,6 @@ body::before {
 }
 
 .panel.active h3 {
-  
   font-weight: 400;
   opacity: 3;
   transition: opacity 0.8s ease 0.6s;
@@ -134,7 +134,6 @@ section {
   margin-bottom: 1rem;
   border-radius: 15px;
   display: flex;
-  border-radius: 10px;
   /* box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.767); */
   flex-direction: column;
 }
@@ -149,15 +148,16 @@ input[type="text"],
 input[type="email"],
 input[type="tel"],
 textarea {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  width: 70%;
+  padding: 0.4rem;
+  border-radius: 8px;
   margin-bottom: 1rem;
+  border:none;
 }
 
 input[type="checkbox"] {
-  margin-right: 0.5rem;
+  margin-right: 0.8rem;
+  cursor: pointer;
 }
 
 .tex {
@@ -171,32 +171,35 @@ input[type="checkbox"] {
 }
 
 .tex p{
-  margin-top: 0.5em;
-  margin-bottom: 1.5em;
-  text-align: justify;
+/* margin-top: 0.5em;
+  margin-bottom: 1.5em;*/
+  text-align: justify; 
 }
 
 .tex strong{
   margin-bottom: 1em;
 }
-
+.tex p, .tex strong{
+  margin: 0.5em 18% 1.5em;
+}
 .hidden {
   animation-name: none;
 }
 
 input[type="submit"] {
-  background-color: #2da832da;
-  color: #fff;
+  background-color: #2da831ec;
+  color: #ffffff;
   border: none;
   margin-top: 1rem;
   padding: 0.5rem 1rem;
-  border-radius: 25px 5px 25px 5px;
+  border-radius: 19px 7px 19px 7px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 1s ease;
 }
 
 input[type="submit"]:hover {
-  background-color: #3e8e4199;
+  background-color: #001dc2da;
+  transform:scale(1.1);
 }
 
 @keyframes miani {
@@ -250,13 +253,13 @@ nav .navbar-nav .nav-item .nav-link:hover {
 
 .titulo {
   margin: 20px 25% 20px 25%;
-  font-size: 25px;
+  font-size: 22px;
   background-color: whitesmoke;
   display: flex;
   justify-content: space-around;
   padding: 18px;
   border-radius: 22px;
-  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.274);
+  box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.192);
   flex-direction: row;
 }
 
@@ -301,7 +304,7 @@ nav .navbar-nav .nav-item .nav-link:hover {
   background-color: #af4caa99;
 }
 .face {
-  background-color: #1608d481;
+  background-color: #0d4edb79;
   margin-bottom: 18px;
 }
 
@@ -337,6 +340,7 @@ footer {
   margin: inherit;
   letter-spacing: inherit;
   background-size: inherit;
+  justify-content: center;
 }
 
 .copy a {
@@ -412,6 +416,11 @@ footer {
   }
   .tex {
     margin: 0px 20px;
+    font-size: 14px;
+  }
+  .tex p, .tex strong{
+    margin: 0.5em 15px 1.5em;
+
   }
   .panel {
     height: 50vh;
