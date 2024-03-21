@@ -22,7 +22,7 @@ body {
 }
 
 body.lazyloaded {
-  background-image: url(BG.jpg);
+  background-image: url(../img/BG.jpg);
 }
 
 body::before {
