@@ -18,12 +18,16 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body data-bg="./img/BG.jpg" class="lazyload">
+<body>
     <header class="header">
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="mx-auto d-md-flex d-block flex-md-nowrap">
                 <a class="navbar-brand" href="#">
-                    <img data-src="./img/logo.png" class="IMG1 lazyload" alt="Logo Pacific Group Supply">
+                    <picture>
+                        <source srcset="./img/logo.avif" type="image/avif">
+                        <source srcset="./img/logo.webp" type="image/webp">
+                        <img src="./img/logo.png" class="IMG1" alt="Logo Pacific Group Supply">
+                    </picture>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,19 +57,35 @@
             <div class="content-container">
                 <section class="acordion">
                     <div class="panel active">
-                        <img data-src="./img/SEGURIDAD.jpg" class="lazyload" alt="Seguridad">
+                        <picture>
+                            <source srcset="./img/SEGURIDAD.avif" type="image/avif">
+                            <source srcset="./img/SEGURIDAD.webp" type="image/webp">
+                            <img src="./img/SEGURIDAD.jpg" alt="Seguridad">
+                        </picture>
                         <h3>Seguridad</h3>
                     </div>
                     <div class="panel">
-                        <img data-src="./img/ADMIN2.jpg" class="lazyload" alt="Administracion">
+                        <picture>
+                            <source srcset="./img/ADMIN2.avif" type="image/avif">
+                            <source srcset="./img/ADMIN2.webp" type="image/webp">
+                            <img src="./img/ADMIN2.jpg" alt="Administracion">
+                        </picture>
                         <h3>Administración</h3>
                     </div>
                     <div class="panel">
-                        <img data-src="./img/MANTENIMIENTO3.jpg" class="lazyload" alt="Electricos">
+                        <picture>
+                            <source srcset="./img/MANTENIMIENTO3.avif" type="image/avif">
+                            <source srcset="./img/MANTENIMIENTO3.webp" type="image/webp">
+                            <img src="./img/MANTENIMIENTO3.jpg" alt="Mantenimiento">
+                        </picture>
                         <h3>Eléctricos</h3>
                     </div>
                     <div class="panel">
-                        <img data-src="./img/LIMPIEZA.jpg" class="lazyload" alt="Limpieza">
+                        <picture>
+                            <source srcset="./img/MANTENIMIENTO2.avif" type="image/avif">
+                            <source srcset="./img/MANTENIMIENTO2.webp" type="image/webp">
+                            <img src="./img/MANTENIMIENTO2.jpg" alt="Mantenimiento">
+                        </picture>
                         <h3>Limpieza</h3>
                     </div>
                 </section>
@@ -138,20 +158,34 @@
             <h1 class="titulo">REDES SOCIALES</h1>
             <div class="content-container pt-3">
                 <div>
-                    <a href="https://wa.me/50769821901" class="foot" target="_blank" rel="noopener"><img
-                            id="whatsapp-icon" class="whatsapp-icon lazyload" data-src="./img/whatsapp.png" alt="">
+                    <a href="https://wa.me/50769821901" class="foot" target="_blank" rel="noopener">
+                        <picture>
+                            <source srcset="./img/whatsapp.avif" type="image/avif">
+                            <source srcset="./img/whatsapp.webp" type="image/webp">
+                            <img id="whatsapp-icon" class="whatsapp-icon" src="./img/whatsapp.png" alt="">
+                        </picture>
                         <p class="red">WhatsApp</p>
                     </a>
                 </div>
                 <div>
                     <a href="https://www.instagram.com/pacificgroupsupply" class="insta" target="_blank"
-                        rel="noopener"><img class="whatsapp-icon lazyload" data-src="./img/instagram.png" alt="">
+                        rel="noopener">
+                        <picture>
+                            <source srcset="./img/instagram.avif" type="image/avif">
+                            <source srcset="./img/instagram.webp" type="image/webp">
+                            <img class="whatsapp-icon" src="./img/instagram.png" alt="">
+                        </picture>
                         <p class="red">Instagram</p>
                     </a>
                 </div>
                 <div>
                     <a href="https://www.facebook.com/pacificgroupsupply" class="face" target="_blank"
-                        rel="noopener"><img class="whatsapp-icon lazyload" data-src="./img/facebook.png" alt="">
+                        rel="noopener">
+                        <picture>
+                            <source srcset="./img/facebook.avif" type="image/avif">
+                            <source srcset="./img/facebook.webp" type="image/webp">
+                            <img class="whatsapp-icon" src="./img/facebook.png" alt="">
+                        </picture>
                         <p class="red">Facebook</p>
                     </a>
                 </div>
