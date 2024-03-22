@@ -334,6 +334,7 @@ h1.titulo {
 
 footer {
   margin: 0px 0px;
+  text-align: center;
 }
 
 .copy {
@@ -348,7 +349,6 @@ footer {
   margin: inherit;
   letter-spacing: inherit;
   background-size: inherit;
-  justify-content: center;
 }
 
 .copy a {
