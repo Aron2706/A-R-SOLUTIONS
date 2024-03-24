@@ -10,8 +10,7 @@
     <link rel="icon" href="./img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" href="./img/favicon-192x192.png" sizes="192x192">
     <link rel="apple-touch-icon" href="./img/favicon-180x180.png">
-    <link rel="preload" href="./img/SEGURIDAD-768.jpg" as="image">
-    <link rel="preload" href="./img/bg/background-768.jpg" as="image">
+    <link rel="preload" href="./img/SEGURIDAD-480.avif" as="image">
     <meta name="msapplication-TileImage" content="./img/favicon-270x270.png">
     <meta name="keywords"
         content="Administración de Propiedades Horizontales, Administración de PH, Administración de Edificios, Administración de Locales, Gestión de Propiedades, Servicios de Administración de Propiedades, Administración de Propiedades en Panamá, Administración de Edificios en Panamá, Administración de Residenciales en Panamá">
@@ -21,6 +20,12 @@
 </head>
 
 <body>
+    <div class="loading-screen d-flex justify-content-center align-items-center">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Cargando...</span>
+        </div>
+    </div>
+
     <header class="header">
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="mx-auto d-md-flex d-block flex-md-nowrap">
@@ -78,7 +83,7 @@
                                        (max-width: 1080px) 768px,
                                        (max-width: 1440px) 1080px,
                                        1440px" type="image/webp">
-                            <img src="./img/SEGURIDAD-1080.jpg" alt="Seguridad" fetchpriority="high">
+                            <img src="./img/SEGURIDAD-480.avif" alt="Seguridad" fetchpriority="high">
                         </picture>
                         <h3>Seguridad</h3>
                     </div>
@@ -102,7 +107,7 @@
                                        (max-width: 1080px) 768px,
                                        (max-width: 1440px) 1080px,
                                        1440px" type="image/webp">
-                            <img loading="lazy" src="./img/ADMIN2-1080.jpg" alt="Administracion">
+                            <img loading="lazy" src="./img/ADMIN2-480.avif" alt="Administracion">
                         </picture>
                         <h3>Administración</h3>
                     </div>
@@ -126,7 +131,7 @@
                                        (max-width: 1080px) 768px,
                                        (max-width: 1440px) 1080px,
                                        1440px" type="image/webp">
-                            <img loading="lazy" src="./img/MANTENIMIENTO3-1080.jpg" alt="Mantenimiento">
+                            <img loading="lazy" src="./img/MANTENIMIENTO3-480.avif" alt="Mantenimiento">
                         </picture>
                         <h3>Eléctricos</h3>
                     </div>
@@ -150,7 +155,7 @@
                                        (max-width: 1080px) 768px,
                                        (max-width: 1440px) 1080px,
                                        1440px" type="image/webp">
-                            <img loading="lazy" src="./img/LIMPIEZA-1080.jpg" alt="Mantenimiento">
+                            <img loading="lazy" src="./img/LIMPIEZA-480.avif" alt="Mantenimiento">
                         </picture>
                         <h3>Limpieza</h3>
                     </div>
@@ -228,7 +233,8 @@
                         <picture>
                             <source srcset="./img/whatsapp.avif" type="image/avif">
                             <source srcset="./img/whatsapp.webp" type="image/webp">
-                            <img loading="lazy" id="whatsapp-icon" class="whatsapp-icon" src="./img/whatsapp.png" alt="">
+                            <img loading="lazy" id="whatsapp-icon" class="whatsapp-icon" src="./img/whatsapp.png"
+                                alt="">
                         </picture>
                         <p class="red">WhatsApp</p>
                     </a>
